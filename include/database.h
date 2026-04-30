@@ -2,7 +2,7 @@
 #ifndef DATABASE_H // شرط أمان بيمنع تكرار تعريف الملف ده أكتر من مرة
 #define DATABASE_H
 #include <string> // استدعاء مكتبة النصوص
-#include <sqlite3.h> // استدعاء مكتبة التعامل مع قاعدة بيانات SQLite
+#include "../include/sqlite3.h" // استدعاء مكتبة التعامل مع قاعدة بيانات SQLite
 
 class Database { // تعريف الكلاس اللي هيجمع كل شغل قاعدة البيانات
 private:

@@ -1,7 +1,7 @@
 #include <iostream>
 #include <string> // مكتبة التعامل مع النصوص
 #include <limits> // مكتبة للتحكم في حدود البيانات (تستخدم لتنظيف المدخلات)
-#include "database.h" //استدعاء ملف التعامل مع قاعدة date
+#include "../include/database.h" //استدعاء ملف التعامل مع قاعدة date
 
 using namespace std;
 
