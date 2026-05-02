@@ -1,20 +1,26 @@
-
-#ifndef BOOK_H
-#define BOOK_H
+#ifndef Book_h
+#define Book_h
 
 #include <string>
-
+using namespace std;
 class Book {
 private:
-    int id;
+    int bookid;
     std::string title;
-    bool isAvailable;
+    std::string author;
+    bool isavailable;
 
 public:
-    // ده اللي الأكواد بتاعتك محتاجاه عشان تشتغل
-    int getId() const { return id; }
-    std::string getTitle() const { return title; }
-    bool getIsAvailable() const { return isAvailable; }
+    Book();
+    Book(int id, const string& title, const string& author, bool isavailable);
+    int getbookid() const;
+    std::string gettitle() const;
+    std::string getauthor() const;
+    bool getisavailable() const;
+    void setbookid(int id);
+    void settitle(const string& title);
+    void setauthor(const string& author);
+    void setisavailable(bool isavailable);
 };
 
 #endif

@@ -3,9 +3,9 @@
 #define FINE_H
 class Fine {
 private:
-    int userId;
-    int bookId;
-    double amount;
+    int id;
+    int bookid ;
+    double Amount;
     bool isPaid;
     // قيمة الغرامة عن كل يوم تأخير 
     const double DAILY_FINE_RATE = 5.0; 

@@ -8,7 +8,7 @@ int ReportManager::getAvailableBooksCount(const std::vector<Book>& libraryBooks)
     int count = 0;
     for (const auto& book : libraryBooks) {
         // السطر اللي كان لوحده هنا اتمسح عشان كان غلط
-        if (book.getIsAvailable()) { 
+        if (book.getisavailable()) { 
             count++;
         }
     }
@@ -31,8 +31,8 @@ std::string ReportManager::getMostPopularBook(const std::vector<Book>& libraryBo
     }
 
     for (const auto& book : libraryBooks) {
-        if (book.getId() == mostPopularBookId) {
-            return book.getTitle(); 
+        if (book.getbookid() == mostPopularBookId) {
+            return book.gettitle(); 
         }
     }
     return "Book not found";

@@ -9,11 +9,11 @@ class User {
 private:
     int id;
     string name;
-    string role;
+    
 
 public:
-    User(int i, string n, string r);
-    string getRole();
+    User(int i, string n);
+    int getId();
 };
 
 #endif

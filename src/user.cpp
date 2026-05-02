@@ -1,11 +1,11 @@
 #include "../include/user.h"
 
-User::User(int i, string n, string r) {
+User::User(int i, string n ) {
     id = i;
     name = n;
-    role = r;
+    
 }
 
-string User::getRole() {
-    return role;
+int User::getId() {
+    return id;
 }
