@@ -2,9 +2,10 @@
 
 
 #include "../include/mainwindow.h"
- 
 #include <QApplication>
-
+ 
+// ════════════════════════════════════════════════════════════════
+//  Constructor / Destructor
 // ════════════════════════════════════════════════════════════════
  
 MainWindow::MainWindow(QWidget *parent)
@@ -696,8 +697,8 @@ void MainWindow::showResult(QLabel* lbl, const QString& msg, bool success)
 {
     lbl->setText(msg);
     lbl->setStyleSheet(success
-        ? "color: #063416; font-size: 13px; font-weight: 600;"
-        : "color: #010430; font-size: 13px; font-weight: 600;");
+        ? "color: #7de8a0; font-size: 13px; font-weight: 600;"
+        : "color: #f08080; font-size: 13px; font-weight: 600;");
 }
  
 // ════════════════════════════════════════════════════════════════
@@ -710,8 +711,8 @@ void MainWindow::applyQSS()
  
 /* ── Base ─────────────────────────────────────────────────────── */
 QMainWindow, QWidget {
-    background-color: #08182c;
-    color: #30353a;
+    background-color: #0f2744;
+    color: #dce8f5;
     font-family: "Segoe UI", "Helvetica Neue", Arial, sans-serif;
     font-size: 13px;
 }
@@ -719,12 +720,12 @@ QMainWindow, QWidget {
 /* ── Login page ───────────────────────────────────────────────── */
 #loginPage {
     background: qlineargradient(x1:0, y1:0, x2:1, y2:1,
-        stop:0 #3c3d3e, stop:0.55 #262728, stop:1 #2b2c2e);
+        stop:0 #0f2744, stop:0.55 #222324, stop:1 #0b1e35);
 }
  
 #titleFrame {
     background-color: rgba(255,255,255,0.08);
-    border: 1px solid rgba(255,255,255,0.15);.\main.exe
+    border: 1px solid rgba(255,255,255,0.15);
     border-radius: 14px;
 }
  
@@ -747,7 +748,7 @@ QMainWindow, QWidget {
  
 #roleCaption {
     font-size: 12px;
-    color: rgba(180,210,240,0.60);
+    color: rgba(58, 58, 59, 0.6);
     letter-spacing: 1.5px;
 }
  
@@ -771,7 +772,7 @@ QMainWindow, QWidget {
 /* ── Menu pages ───────────────────────────────────────────────── */
 #menuPage {
     background: qlineargradient(x1:0, y1:0, x2:1, y2:1,
-        stop:0 #0f2744, stop:1 #0b1e35);
+        stop:0 #0f2744, stop:1 #363738);
 }
  
 #badge {
@@ -806,7 +807,7 @@ QMainWindow, QWidget {
 /* ── Input pages ──────────────────────────────────────────────── */
 #inputPage {
     background: qlineargradient(x1:0, y1:0, x2:1, y2:1,
-        stop:0 #0f2744, stop:1 #0b1e35);
+        stop:0 #3d3e40, stop:1 #0b1e35);
 }
  
 #pageTitle {
@@ -818,7 +819,7 @@ QMainWindow, QWidget {
 #fieldLabel {
     font-size: 12px;
     font-weight: 600;
-    color: rgba(160,200,240,0.80);
+    color: rgba(48, 49, 49, 0.8);
     letter-spacing: 1.2px;
     margin-bottom: 2px;
 }
@@ -840,7 +841,7 @@ QMainWindow, QWidget {
 }
  
 #submitBtn {
-    background-color: #1e5bbf;
+    background-color: #2c2c2d;
     border: none;
     border-radius: 9px;
     font-size: 14px;
@@ -851,10 +852,10 @@ QMainWindow, QWidget {
     min-width: 160px;
 }
 #submitBtn:hover {
-    background-color: #2a70e0;
+    background-color: #2e2f30;
 }
 #submitBtn:pressed {
-    background-color: #174da8;
+    background-color: #373737;
 }
  
 #resultLabel {
@@ -886,4 +887,3 @@ QMainWindow, QWidget {
  
     qApp->setStyleSheet(qss);
 }
-

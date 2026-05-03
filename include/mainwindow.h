@@ -4,20 +4,20 @@
 #ifndef MAINWINDOW_H
 #define MAINWINDOW_H
  
-#include <QtWidgets/QMainWindow>
-#include <QtWidgets/QStackedWidget>
-#include <QtWidgets/QPushButton>
-#include <QtWidgets/QLineEdit>
-#include <QtWidgets/QLabel>
-#include <QtWidgets/QVBoxLayout>
-#include <QtWidgets/QHBoxLayout>
-#include <QtWidgets/QWidget>
-#include <QtWidgets/QFrame>
-#include <QtWidgets/QTextEdit>
-#include <QtWidgets/QGraphicsDropShadowEffect>
-#include <QtWidgets/QMessageBox>
-#include <QtCore/QString>
-#include <QtWidgets/QSpinBox>
+#include <QMainWindow>
+#include <QStackedWidget>
+#include <QPushButton>
+#include <QLineEdit>
+#include <QLabel>
+#include <QVBoxLayout>
+#include <QHBoxLayout>
+#include <QWidget>
+#include <QFrame>
+#include <QTextEdit>
+#include <QGraphicsDropShadowEffect>
+#include <QMessageBox>
+#include <QString>
+#include <QSpinBox>
  
 // ── Your backend headers ───────────────────────────────────────
 #include "../include/library.h"
@@ -109,4 +109,6 @@ private:
     int m_userRole = PAGE_ADMIN_MENU;
 };
  
-#endif
+#endif // MAINWINDOW_H
+
+
