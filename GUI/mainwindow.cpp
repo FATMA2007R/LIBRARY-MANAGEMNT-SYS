@@ -696,8 +696,8 @@ void MainWindow::showResult(QLabel* lbl, const QString& msg, bool success)
 {
     lbl->setText(msg);
     lbl->setStyleSheet(success
-        ? "color: #7de8a0; font-size: 13px; font-weight: 600;"
-        : "color: #f08080; font-size: 13px; font-weight: 600;");
+        ? "color: #063416; font-size: 13px; font-weight: 600;"
+        : "color: #010430; font-size: 13px; font-weight: 600;");
 }
  
 // ════════════════════════════════════════════════════════════════
@@ -710,8 +710,8 @@ void MainWindow::applyQSS()
  
 /* ── Base ─────────────────────────────────────────────────────── */
 QMainWindow, QWidget {
-    background-color: #0f2744;
-    color: #dce8f5;
+    background-color: #08182c;
+    color: #30353a;
     font-family: "Segoe UI", "Helvetica Neue", Arial, sans-serif;
     font-size: 13px;
 }
@@ -719,12 +719,12 @@ QMainWindow, QWidget {
 /* ── Login page ───────────────────────────────────────────────── */
 #loginPage {
     background: qlineargradient(x1:0, y1:0, x2:1, y2:1,
-        stop:0 #0f2744, stop:0.55 #143460, stop:1 #0b1e35);
+        stop:0 #3c3d3e, stop:0.55 #262728, stop:1 #2b2c2e);
 }
  
 #titleFrame {
     background-color: rgba(255,255,255,0.08);
-    border: 1px solid rgba(255,255,255,0.15);
+    border: 1px solid rgba(255,255,255,0.15);.\main.exe
     border-radius: 14px;
 }
  
