@@ -14,9 +14,9 @@ public:
     void createTables(); // دالة بتبني الجداول (كتب، طلاب، استعارة) لو مش موجودين
     bool saveBook(int id, const std::string& title, int status); // دالة لإضافة كتاب جديد للجدول
     bool loadBooks(); // دالة لعرض كل الكتب اللي عندنا في المكتبة
-    bool updateAvailability(int bookID, int status); // دالة بتغير حالة الكتاب من متاح لمستعار والعكس
+    bool updateAvailability(int bookid, int status); // دالة بتغير حالة الكتاب من متاح لمستعار والعكس
     bool saveUser(int id, const std::string& name); // دالة لتسجيل طالب جديد في النظام
-    bool borrowBook(int bookID, int userID); // دالة تنفيذ عملية الاستعارة وتسجيلها في الجدول
+    bool borrowBook(int bookid, int id); // دالة تنفيذ عملية الاستعارة وتسجيلها في الجدول
     bool viewBorrowingReport(); // دالة بتعرض جدول فيه كل العمليات (مين خد إيه)
 };
 #endif // نهاية شرط الأمان الخاص بالملف

@@ -44,3 +44,4 @@ void Book::setauthor(const std::string& author) {
 
 void Book::setisavailable(bool isavailable) {
     this->isavailable = isavailable;
+}

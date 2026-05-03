@@ -12,15 +12,16 @@ private:
 
 public:
     Book();
-    Book(int id, const string& title, const string& author, bool isavailable);
+    Book(int bookid, const string& title, const string& author, bool isavailable);
     int getbookid() const;
     std::string gettitle() const;
     std::string getauthor() const;
     bool getisavailable() const;
-    void setbookid(int id);
+    void setbookid(int bookid);
     void settitle(const string& title);
     void setauthor(const string& author);
     void setisavailable(bool isavailable);
+   
 };
 
 #endif

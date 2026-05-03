@@ -57,35 +57,35 @@ bool Database::saveUser(int id, const string& name) {
 bool Database::loadBooks() { return sqlite3_exec(db, "SELECT * FROM books;", callback, 0, 0) == SQLITE_OK; }
 
 // دالة تحديث حالة الكتاب (متاح أو غير متاح) بعد الاستعارة
-bool Database::updateAvailability(int bookID, int status) {
-    string sql = "UPDATE books SET STATUS = " + to_string(status) + " WHERE ID = " + to_string(bookID) + ";";
+bool Database::updateAvailability(int bookid, int status) {
+    string sql = "UPDATE books SET STATUS = " + to_string(status) + " WHERE ID = " + to_string(bookid) + ";";
     return sqlite3_exec(db, sql.c_str(), 0, 0, 0) == SQLITE_OK;
 }
 
 // دالة الاستعارة:  البرنامج، بتتأكد من البيانات وتسجل العملية
-bool Database::borrowBook(int bookID, int userID) {
+bool Database::borrowBook(int bookid, int id) {
     sqlite3_stmt* stmt;
     string sName = "", bTitle = "";
 
     // 1. التأكد إن الطالب مسجل في النظام وجلب اسمه
-    sqlite3_prepare_v2(db, ("SELECT NAME FROM users WHERE ID=" + to_string(userID)).c_str(), -1, &stmt, 0);
+    sqlite3_prepare_v2(db, ("SELECT NAME FROM users WHERE ID=" + to_string(id)).c_str(), -1, &stmt, 0);
     if (sqlite3_step(stmt) == SQLITE_ROW) sName = (const char*)sqlite3_column_text(stmt, 0);
-    else { cout << "\n[!] Error: Student ID (" << userID << ") not found!\n"; sqlite3_finalize(stmt); return false; }
+    else { cout << "\n[!] Error: Student ID (" << id << ") not found!\n"; sqlite3_finalize(stmt); return false; }
     sqlite3_finalize(stmt);
 
     // 2. التأكد إن الكتاب موجود ومتاح (Status = 1) وجلب اسمه
-    sqlite3_prepare_v2(db, ("SELECT TITLE, STATUS FROM books WHERE ID=" + to_string(bookID)).c_str(), -1, &stmt, 0);
+    sqlite3_prepare_v2(db, ("SELECT TITLE, STATUS FROM books WHERE ID=" + to_string(bookid)).c_str(), -1, &stmt, 0);
     if (sqlite3_step(stmt) == SQLITE_ROW) {
         if (sqlite3_column_int(stmt, 1) == 0) { cout << "\n[!] Error: Book already borrowed!\n"; sqlite3_finalize(stmt); return false; }
         bTitle = (const char*)sqlite3_column_text(stmt, 0);
-    } else { cout << "\n[!] Error: Book ID (" << bookID << ") not found!\n"; sqlite3_finalize(stmt); return false; }
+    } else { cout << "\n[!] Error: Book ID (" << bookid << ") not found!\n"; sqlite3_finalize(stmt); return false; }
     sqlite3_finalize(stmt);
 
     // 3. تسجيل عملية الاستعارة (حفظ الأرقام والأسماء مع بعض في جدول واحد)
-    string sql = "INSERT INTO borrowing VALUES (" + to_string(bookID) + ", '" + bTitle + "', " + to_string(userID) + ", '" + sName + "');";
+    string sql = "INSERT INTO borrowing VALUES (" + to_string(bookid) + ", '" + bTitle + "', " + to_string(id) + ", '" + sName + "');";
     
     if (sqlite3_exec(db, sql.c_str(), 0, 0, 0) == SQLITE_OK) {
-        updateAvailability(bookID, 0); // تغيير حالة الكتاب لـ "مستعار"
+        updateAvailability(bookid, 0); // تغيير حالة الكتاب لـ "مستعار"
         cout << "\n>> Success! [" << sName << "] took [" << bTitle << "]\n";
         return true;
     }
